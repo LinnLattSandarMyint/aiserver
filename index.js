@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
+
 app.get("/", (req, res) => {
   res.send("Welcom to linlet Ai server!");
 });
@@ -15,7 +16,8 @@ app.post("/api/generateWeeklyPlan",async (req, res) => {
  const {profile}=req.body;
  const prompt=getGenerateMealPlanPrompt(profile);
  const result=await callToAi(prompt);
- res.json(result)
+ res.json(JSON.parse(result));
+
 })
 
 app.listen(PORT, () => {
