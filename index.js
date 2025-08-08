@@ -13,8 +13,8 @@ app.get("/", (req, res) => {
 });
 
 app.post("/api/generateWeeklyPlan",async (req, res) => { 
- const {profile}=req.body;
- const prompt=getGenerateMealPlanPrompt(profile);
+ const {profile,requestDate}=req.body;
+ const prompt=getGenerateMealPlanPrompt(profile,requestDate);
  const result=await callToAi(prompt);
  res.json(JSON.parse(result));
 

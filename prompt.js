@@ -1,10 +1,10 @@
-  const getGenerateMealPlanPrompt = (profile) => {
+  const getGenerateMealPlanPrompt = (profile,requestDate) => {
  return `plese generate meal plan for the user data provided below inside below xml .
 
 <ProfileData>
     ${profile}
 </ProfileData>
- Please generate for seven days . Data of each day must look like the json inside below xml .
+ Please generate for seven days starting from ${requestDate} . Data of each day must look like the json inside below xml .
  <ExampleData>
  {
   'date': '2025-08-03',
