@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const {getGenerateMealPlanPrompt}=require("./prompt");
+const {getGenerateMealPlanPrompt, getGenerateDailyMealPlanPrompt}=require("./prompt");
 const callToAi = require("./ai");
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -20,6 +20,12 @@ app.post("/api/generateWeeklyPlan",async (req, res) => {
 
 })
 
+app.post("/api/generateDailyPlan",async (req, res) => {
+  const {profile,requestDate}=req.body;
+  const prompt=getGenerateDailyMealPlanPrompt(profile,requestDate);
+  const result=await callToAi(prompt);
+  res.json(JSON.parse(result));
+})
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
