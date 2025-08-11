@@ -1,10 +1,12 @@
-  const getGenerateMealPlanPrompt = (profile,requestDate) => {
- return `plese generate meal plan for the user data provided below inside below xml .
+const getGenerateMealPlanPrompt = (profile, requestDate) => {
+  return `plese generate meal plan for the user data provided below inside below xml .
 
 <ProfileData>
     ${profile}
 </ProfileData>
- Please generate for seven days starting from ${requestDate} . Data of each day must look like the json inside below xml .
+ Please generate for seven days starting from ${requestDate} . 
+ Data of each day must look like the json inside below xml .
+ Remember to generate image urls from internet for eact item in the meal plan.
  <ExampleData>
  {
   'date': '2025-08-03',
@@ -96,17 +98,18 @@
 }
 </ExampleData>
 . Generate data for seven days as an array of object 
-`
+`;
+};
 
-  }
-
-  const getGenerateDailyMealPlanPrompt = (profile,requestDate) => {
- return `plese generate meal plan for the user data provided below inside below xml .
+const getGenerateDailyMealPlanPrompt = (profile, requestDate) => {
+  return `plese generate meal plan for the user data provided below inside below xml .
 
 <ProfileData>
     ${profile}
 </ProfileData>
- Please generate for one day with this date ${requestDate} . Data of each day must look like the json inside below xml .
+ Please generate for one day with this date ${requestDate} .
+  Data of each day must look like the json inside below xml .
+  Remember to generate image urls from internet for eact item in the meal plan.q
  <ExampleData>
  {
   'date': '2025-08-03',
@@ -198,7 +201,6 @@
 }
 </ExampleData>
 . Generate data for one day as an object 
-`
-
-  }
-  module.exports = { getGenerateMealPlanPrompt, getGenerateDailyMealPlanPrompt };
+`;
+};
+module.exports = { getGenerateMealPlanPrompt, getGenerateDailyMealPlanPrompt };
