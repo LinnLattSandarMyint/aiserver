@@ -6,7 +6,7 @@ const getGenerateMealPlanPrompt = (profile, requestDate) => {
 </ProfileData>
  Please generate for seven days starting from ${requestDate} . 
  Data of each day must look like the json inside below xml .
- Remember to generate image urls from internet for eact item in the meal plan.
+ 
  <ExampleData>
  {
   'date': '2025-08-03',
@@ -109,7 +109,7 @@ const getGenerateDailyMealPlanPrompt = (profile, requestDate) => {
 </ProfileData>
  Please generate for one day with this date ${requestDate} .
   Data of each day must look like the json inside below xml .
-  Remember to generate image urls from internet for eact item in the meal plan.q
+  
  <ExampleData>
  {
   'date': '2025-08-03',
